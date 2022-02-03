@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="titles" parent="TextAppearance.AppCompat">
+        <item name="android:padding">2dp</item>
+        <item name="android:textSize">28sp</item>
+        <item name="fontFamily">serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+    <style name="editTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">4dp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:shadowColor">#77A8A8A8</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+    <style name="button" parent="Widget.AppCompat.Button">
+        <item name="android:paddingVertical">8dp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="backgroundTint">#171D71</item>
+        <item name="android:shadowColor">#77A8A8A8</item>
+        <item name="android:shadowDx">4</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+    <style name="bigButton" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">22sp</item>
+        <item name="android:paddingVertical">20dp</item>
+        <item name="android:paddingHorizontal">30dp</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="backgroundTint">#0D103F</item>
+        <item name="android:shadowColor">#77A8A8A8</item>
+        <item name="android:shadowDx">6</item>
+        <item name="android:shadowDy">6</item>
+        <item name="android:shadowRadius">6</item>
+    </style>
+</resources>

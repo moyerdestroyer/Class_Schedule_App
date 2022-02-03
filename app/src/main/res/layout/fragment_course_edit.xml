@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:outlineAmbientShadowColor="#000000"
+    tools:context=".fragment_course_edit">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fragment_course_id_textview"
+            style="@style/titles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_course" />
+
+        <EditText
+            android:id="@+id/fragment_course_title_edittext"
+            style="@style/editTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Title"
+            android:hint="@string/course_title"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/fragment_course_start_date_edittext"
+            style="@style/editTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="@string/example_date"
+            android:autofillHints="None"
+            android:inputType="date" />
+
+        <Button
+            android:id="@+id/fragment_course_start_date_button"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showDatePickerDialog"
+            android:text="@string/select_start_date" />
+
+        <EditText
+            android:id="@+id/fragment_course_end_date_edittext"
+            style="@style/editTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="@string/example_date"
+            android:autofillHints="None"
+            android:inputType="date"/>
+
+        <Button
+            android:id="@+id/fragment_course_end_date_button"
+            style="@style/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showDatePickerDialog"
+            android:text="@string/select_end_date" />
+
+        <EditText
+            android:id="@+id/fragment_course_instructor_edittext"
+            style="@style/editTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/instructor_name"
+            android:autofillHints="Course Instructor"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/fragment_course_instructor_email_edittext"
+            style="@style/editTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/example_email"
+            android:inputType="textEmailAddress"
+            android:autofillHints="Course Instructor Email" />
+
+        <EditText
+            android:id="@+id/fragment_course_note_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:gravity="start|top"
+            android:hint="@string/notes_hint"
+            android:inputType="textMultiLine"
+            android:lines="6"
+            android:autofillHints="Note Section" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/fragment_course_complete_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="2dp"
+            android:padding="2dp"
+            android:text="@string/course_complete"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/fragment_course_assessment_textview"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="12dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/assessments" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_course_assessment_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="0dp"
+            android:background="#D9D9FF"
+            android:elevation="10dp"
+            android:minHeight="80dp"
+            android:outlineAmbientShadowColor="#000000"
+            android:outlineProvider="paddedBounds"
+            android:padding="6dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                style="@style/button"
+                android:id="@+id/fragment_course_add_assessment_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_assessment"/>
+            <Button
+                style="@style/button"
+                android:id="@+id/fragment_course_delete_assessment_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_assessment"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                style="@style/bigButton"
+                android:id="@+id/fragment_course_save_course_bigbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save_course" />
+            <Button
+                style="@style/bigButton"
+                android:id="@+id/fragment_course_delete_course_bigbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delete_course" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

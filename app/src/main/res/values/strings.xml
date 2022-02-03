@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Class Schedule</string>
+    <string name="please_login">Please Login</string>
+    <string name="login">Login</string>
+    <string name="lock_screen_enabled">Lock screen must be enabled in settings</string>
+    <string name="fingerprint_permission_prompt">Fingerprint permission not enabled</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="auth_error">\"Authentication Error: \"</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_start_date">Select Start Date</string>
+    <string name="course_title">Course Title</string>
+    <string name="example_date">01/01/2001</string>
+    <string name="select_end_date">Select End Date</string>
+    <string name="instructor_name">Instructor Name</string>
+    <string name="example_email">instructor@course.edu</string>
+    <string name="course_complete">Course Complete:</string>
+    <string name="notes_hint">Notes...</string>
+    <string name="assessments">Assessments:</string>
+    <string name="add_assessment">Add Assessment</string>
+    <string name="delete_assessment">Delete Assessment</string>
+    <string name="save_course">SAVE COURSE</string>
+    <string name="delete_course">DELETE COURSE</string>
+    <string name="add_course">Add Course...</string>
+</resources>
