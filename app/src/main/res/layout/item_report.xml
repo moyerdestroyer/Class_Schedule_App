@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        style="@style/tableCell"
+        android:id="@+id/report_recyclerview_id_textview"
+        android:layout_width="56dp"
+        android:layout_height="match_parent"
+        android:text="ID" />
+
+    <TextView
+        style="@style/tableCell"
+        android:id="@+id/report_recyclerview_title_textview"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Title of Course" />
+
+    <TextView
+        style="@style/tableCell"
+        android:id="@+id/report_recyclerview_start_textview"
+        android:layout_width="156dp"
+        android:layout_height="match_parent"
+        android:text="Start:" />
+
+    <TextView
+        style="@style/tableCell"
+        android:id="@+id/report_recyclerview_end_textview"
+        android:layout_width="156dp"
+        android:layout_height="match_parent"
+        android:text="End:" />
+    <TextView
+        style="@style/tableCell"
+        android:id="@+id/report_recyclerview_instructor_textview"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:text="Instructor:" />
+    <TextView
+        style="@style/tableCell"
+        android:id="@+id/report_recyclerview_updated_textview"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:text="Last Updated:"
+</LinearLayout>

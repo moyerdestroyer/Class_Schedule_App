@@ -14,11 +14,19 @@
     <string name="instructor_name">Instructor Name</string>
     <string name="example_email">instructor@course.edu</string>
     <string name="course_complete">Course Complete:</string>
-    <string name="notes_hint">Notes...</string>
+    <string name="notes_hint">Notes…</string>
     <string name="assessments">Assessments:</string>
     <string name="add_assessment">Add Assessment</string>
     <string name="delete_assessment">Delete Assessment</string>
     <string name="save_course">SAVE COURSE</string>
     <string name="delete_course">DELETE COURSE</string>
-    <string name="add_course">Add Course...</string>
+    <string name="add_course">Add Course…</string>
+    <string name="assessment_title">Assessment Title</string>
+    <string name="written_assessment">Written Assessment</string>
+    <string name="oral_assessment">Oral Assessment</string>
+    <string name="note">Note...</string>
+    <string name="example_instructor_name">Instructor Name</string>
+    <string name="example_combo_date">1/1/2021 - 1/2/2022</string>
+    <string name="example_course_title">Course Title</string>
+    <string name="sample_note_assessment_text">This is a sample note text. Hopefully, a student will not have too much to say here.</string>
 </resources>

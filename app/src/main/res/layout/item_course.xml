@@ -6,9 +6,23 @@
 
     <TextView
         style="@style/titles"
+        android:id="@+id/item_course_title_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CourseTitle" />
+        android:text="@string/example_course_title" />
 
+    <TextView
+        style="@style/recyclerTextview"
+        android:id="@+id/item_course_date_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/example_combo_date" />
+
+    <TextView
+        style="@style/recyclerTextview"
+        android:id="@+id/item_course_instructor_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/example_instructor_name"/>
 
 </LinearLayout>

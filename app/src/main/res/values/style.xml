@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="titles" parent="TextAppearance.AppCompat">
-        <item name="android:padding">2dp</item>
+        <item name="android:paddingHorizontal">2dp</item>
         <item name="android:textSize">28sp</item>
         <item name="fontFamily">serif</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_margin">2dp</item>
     </style>
     <style name="editTextStyle" parent="Widget.AppCompat.EditText">
         <item name="android:padding">4dp</item>
@@ -38,5 +38,18 @@
         <item name="android:shadowDx">6</item>
         <item name="android:shadowDy">6</item>
         <item name="android:shadowRadius">6</item>
+    </style>
+    <style name="recyclerTextview" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingHorizontal">6dp</item>
+        <item name="android:layout_marginHorizontal">6dp</item>
+    </style>
+    <style name="radioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:padding">2dp</item>
+    </style>
+    <style name="tableCell" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_gravity">top</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/table_content_cell_bg</item>
     </style>
 </resources>

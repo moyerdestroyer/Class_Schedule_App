@@ -2,6 +2,8 @@ package com.capstone.classschedule;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,11 +12,14 @@ import android.view.View;
 import com.capstone.classschedule.Dialogs.DatePickerFragment;
 
 public class CourseActivity extends AppCompatActivity {
+    RecyclerView courseRecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
+        courseRecycler = findViewById(R.id.course_activity_recyclerview);
+        courseRecycler.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 
     @Override

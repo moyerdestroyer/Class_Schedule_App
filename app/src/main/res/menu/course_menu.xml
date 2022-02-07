@@ -7,5 +7,8 @@
         android:id="@+id/menu_add_course"
         android:title="Add Course..."
         app:showAsAction="ifRoom" />
-
+    <item
+        android:id="@+id/menu_report_view"
+        android:title="Report View"
+        app:showAsAction="ifRoom" />
 </menu>

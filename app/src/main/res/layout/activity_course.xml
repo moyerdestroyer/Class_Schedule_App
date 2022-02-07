@@ -3,18 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CourseActivity">
+    android:layout_height="wrap_content"
+    tools:context=".CourseActivity"
+    android:orientation="vertical">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/course_activity_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/course_activity_searchview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:outlineAmbientShadowColor="#C2C2C2"
+        android:outlineProvider="paddedBounds"
+        android:padding="2dp"
+        app:queryHint="Course Search..."/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/course_activity_recyclerview"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         tools:listitem="@layout/item_course" />
 
 </LinearLayout>

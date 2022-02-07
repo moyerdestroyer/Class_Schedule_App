@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RadioGroup
+        android:id="@+id/dialog_assessment_type_radiogroup"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/dialog_assessment_type_oral_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="@string/oral_assessment" />
+
+        <RadioButton
+            android:id="@+id/dialog_assessment_type_written_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:text="@string/written_assessment" />
+    </RadioGroup>
+
+    <EditText
+        style="@style/editTextStyle"
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/assessment_title"
+        android:autofillHints="Title"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/dialog_assessment_note_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:hint="@string/note"
+        android:lines="2"
+        android:importantForAutofill="no" />
+
+</LinearLayout>

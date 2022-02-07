@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/activity_course.xml" value="0.2046875" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/drawable-anydpi/assessment_written.xml" value="0.2" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/drawable/table_content_cell_bg.xml" value="0.2" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/activity_course.xml" value="0.4" />
         <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/activity_course_view.xml" value="0.2046875" />
         <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/activity_report.xml" value="0.264" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/dialog_create_assessment.xml" value="0.264" />
         <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/fragment_course_edit.xml" value="0.3361847733105218" />
-        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/item_course.xml" value="0.264" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/item_assessment.xml" value="0.4" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/item_course.xml" value="0.536" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/item_report.xml" value="0.2046875" />
         <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/menu/course_menu.xml" value="0.2046875" />
       </map>
     </option>

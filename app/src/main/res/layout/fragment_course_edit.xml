@@ -131,7 +131,8 @@
             android:minHeight="80dp"
             android:outlineAmbientShadowColor="#000000"
             android:outlineProvider="paddedBounds"
-            android:padding="6dp" />
+            android:padding="6dp"
+            tools:listitem="@layout/item_assessment"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -173,7 +174,5 @@
                 android:text="@string/delete_course" />
 
         </LinearLayout>
-
-
     </LinearLayout>
 </ScrollView>
