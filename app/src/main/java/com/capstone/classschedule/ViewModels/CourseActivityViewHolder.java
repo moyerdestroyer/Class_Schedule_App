@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.capstone.classschedule.CourseActivity;
 import com.capstone.classschedule.Model.Course;
 import com.capstone.classschedule.R;
 
@@ -22,7 +23,6 @@ public class CourseActivityViewHolder extends RecyclerView.ViewHolder implements
         courseTitle = itemView.findViewById(R.id.item_course_title_textview);
         courseDates = itemView.findViewById(R.id.item_course_date_textview);
         courseInstructor = itemView.findViewById(R.id.item_course_instructor_textview);
-
     }
 
     public void bind(Course course) {
@@ -39,6 +39,7 @@ public class CourseActivityViewHolder extends RecyclerView.ViewHolder implements
 
     @Override
     public void onClick(View v) {
-        //TODO set selected course and go to fragment
+        CourseActivity courseActivity = (CourseActivity) v.getContext();
+        courseActivity.courseDetailView(thisCourse);
     }
 }

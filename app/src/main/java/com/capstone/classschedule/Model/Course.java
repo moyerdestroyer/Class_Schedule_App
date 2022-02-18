@@ -2,6 +2,8 @@ package com.capstone.classschedule.Model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.OnConflictStrategy;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "courses")
@@ -11,9 +13,9 @@ public class Course {
     private int id;
     @ColumnInfo(name = "title")
     private String title;
-    @ColumnInfo(name = "start")
+    @ColumnInfo(name = "startDate")
     private String start;
-    @ColumnInfo(name = "end")
+    @ColumnInfo(name = "endDate")
     private String end;
     @ColumnInfo(name = "instructor")
     private String instructor;

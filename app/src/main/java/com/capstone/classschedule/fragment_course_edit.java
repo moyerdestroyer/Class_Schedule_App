@@ -2,11 +2,27 @@ package com.capstone.classschedule;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.capstone.classschedule.Adapters.AssessmentAdapter;
+import com.capstone.classschedule.Model.Course;
+import com.capstone.classschedule.Model.SelectedCourse;
+import com.capstone.classschedule.ViewModels.AssessmentViewModel;
+
+import org.w3c.dom.Text;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,29 +30,13 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class fragment_course_edit extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public fragment_course_edit() {
-        // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_course_edit.
-     */
-    // TODO: Rename and change types and number of parameters
     public static fragment_course_edit newInstance(String param1, String param2) {
         fragment_course_edit fragment = new fragment_course_edit();
         Bundle args = new Bundle();
@@ -58,7 +58,42 @@ public class fragment_course_edit extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_course_edit, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_course_edit, container, false);
+        SelectedCourse viewModel = new ViewModelProvider(requireActivity()).get(SelectedCourse.class);
+        AssessmentViewModel assessmentViewModel = new ViewModelProvider(requireActivity()).get(AssessmentViewModel.class);
+        RecyclerView assessmentRecycler = rootView.findViewById(R.id.fragment_course_assessment_recyclerview);
+        final AssessmentAdapter adapter = new AssessmentAdapter(new AssessmentAdapter.AssessmentDiff());
+        assessmentRecycler.setAdapter(adapter);
+        assessmentRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        assessmentViewModel.getAllAssessments().observe(requireActivity(), adapter::submitList);
+
+        Course thiscourse;
+        if(viewModel.getSelectedCourse().getValue() != null) {
+            thiscourse = viewModel.getSelectedCourse().getValue();
+            TextView id = rootView.findViewById(R.id.fragment_course_id_textview);
+            EditText title = rootView.findViewById(R.id.fragment_course_title_edittext);
+            EditText startDate = rootView.findViewById(R.id.fragment_course_start_date_edittext);
+            EditText endDate = rootView.findViewById(R.id.fragment_course_end_date_edittext);
+            EditText instructor = rootView.findViewById(R.id.fragment_course_instructor_edittext);
+            EditText instructorEmail = rootView.findViewById(R.id.fragment_course_instructor_email_edittext);
+            EditText note = rootView.findViewById(R.id.fragment_course_note_edittext);
+            SwitchCompat complete = rootView.findViewById(R.id.fragment_course_complete_switch);
+
+            //Set values
+            id.setText(String.valueOf(thiscourse.getId()));
+            title.setText(thiscourse.getTitle());
+            startDate.setText(thiscourse.getStart());
+            endDate.setText(thiscourse.getEnd());
+            instructor.setText(thiscourse.getInstructor());
+            instructorEmail.setText(thiscourse.getInstructorEmail());
+            note.setText(thiscourse.getNote());
+            //If not zero, set checked
+            complete.setChecked(thiscourse.getComplete() != 0);
+            //update assessments
+            assessmentViewModel.setSelectedId(thiscourse.getId());
+        } else {
+            assessmentViewModel.setSelectedId(null);
+        }
+        return rootView;
     }
 }

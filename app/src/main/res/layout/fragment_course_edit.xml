@@ -144,6 +144,7 @@
                 android:id="@+id/fragment_course_add_assessment_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="showAddAssessmentDialog"
                 android:text="@string/add_assessment"/>
             <Button
                 style="@style/button"
@@ -165,12 +166,14 @@
                 android:id="@+id/fragment_course_save_course_bigbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="SaveCourse"
                 android:text="@string/save_course" />
             <Button
                 style="@style/bigButton"
                 android:id="@+id/fragment_course_delete_course_bigbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="DeleteCourse"
                 android:text="@string/delete_course" />
 
         </LinearLayout>

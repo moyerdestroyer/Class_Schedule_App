@@ -29,4 +29,6 @@
     <string name="example_combo_date">1/1/2021 - 1/2/2022</string>
     <string name="example_course_title">Course Title</string>
     <string name="sample_note_assessment_text">This is a sample note text. Hopefully, a student will not have too much to say here.</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>

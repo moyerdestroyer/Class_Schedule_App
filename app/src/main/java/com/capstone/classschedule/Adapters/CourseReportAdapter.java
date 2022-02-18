@@ -7,25 +7,24 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import com.capstone.classschedule.Model.Course;
-import com.capstone.classschedule.ViewModels.CourseActivityViewHolder;
+import com.capstone.classschedule.ViewModels.CourseReportViewHolder;
 
-public class CourseActivityAdapter extends ListAdapter<Course, CourseActivityViewHolder> {
-    public CourseActivityAdapter(@NonNull DiffUtil.ItemCallback<Course> diffCallback) {
+public class CourseReportAdapter extends ListAdapter<Course, CourseReportViewHolder> {
+    public CourseReportAdapter(@NonNull DiffUtil.ItemCallback<Course> diffCallback) {
         super(diffCallback);
     }
 
     @NonNull
     @Override
-    public CourseActivityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return CourseActivityViewHolder.create(parent);
+    public CourseReportViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return CourseReportViewHolder.create(parent);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseActivityViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CourseReportViewHolder holder, int position) {
         Course current = getItem(position);
         holder.bind(current);
     }
-
     public static class CourseDiff extends DiffUtil.ItemCallback<Course> {
 
         @Override

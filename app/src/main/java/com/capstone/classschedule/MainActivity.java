@@ -25,7 +25,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loginPrompt = findViewById(R.id.main_login_prompt);
-        boolean support = checkBiometricSupport();
+        //AUTO LOGIN FOR TESTING
+        Intent courseIntent = new Intent(getApplicationContext(), CourseActivity.class);
+        startActivity(courseIntent);
+        //DELETE ABOVE
+        //UNDELETE BELOW
+        //boolean support = checkBiometricSupport();
     }
 
     public void authenticateUser(View view) {

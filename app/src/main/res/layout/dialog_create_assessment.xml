@@ -28,7 +28,7 @@
 
     <EditText
         style="@style/editTextStyle"
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/dialog_assessment_title_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/assessment_title"
