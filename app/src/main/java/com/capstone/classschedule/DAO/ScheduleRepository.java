@@ -17,6 +17,7 @@ public class ScheduleRepository {
     private AssessmentDAO assessmentDAO;
     private LiveData<List<Course>> allCourses;
     private LiveData<List<Assessment>> allAssessments;
+    int lastCourseId;
 
     public ScheduleRepository(Application application) {
         ScheduleRoomDatabase db = ScheduleRoomDatabase.getDatabase(application);
@@ -24,6 +25,7 @@ public class ScheduleRepository {
         allCourses = courseDAO.getAllCourses();
         assessmentDAO = db.assessmentDAO();
         allAssessments = assessmentDAO.getAllAssessments();
+        lastCourseId = -1;
     }
 
     /*
@@ -50,6 +52,11 @@ public class ScheduleRepository {
                 courseDAO.filter(input));
     }
 
+    public Future<Course> getLastCreated() {
+        return ScheduleRoomDatabase.databaseWriteExecutor.submit(() ->
+                courseDAO.getLastCreated());
+    }
+
     /*
      * ASSESSMENT SECTION
      */
@@ -70,5 +77,10 @@ public class ScheduleRepository {
     public void updateNegativeOnes(int negative, int courseId) {
         ScheduleRoomDatabase.databaseWriteExecutor.execute(() ->
                 assessmentDAO.updateNegativeOnes(negative, courseId));
+    }
+
+    public Future<Integer> countOfAssessments(int courseId) {
+        return ScheduleRoomDatabase.databaseWriteExecutor.submit(() ->
+                assessmentDAO.countOfAssessments(courseId));
     }
 }

@@ -49,4 +49,12 @@
         android:layout_width="260dp"
         android:layout_height="match_parent"
         android:text="Last Updated:" />
+
+    <TextView
+        style="@style/tableCell"
+        android:id="@+id/report_recyclerview_assessments"
+        android:layout_width="86dp"
+        android:layout_height="match_parent"
+        android:text="Assessments:" />
+
 </LinearLayout>

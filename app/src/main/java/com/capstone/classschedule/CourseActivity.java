@@ -26,6 +26,7 @@ import com.capstone.classschedule.Dialogs.DatePickerFragment;
 import com.capstone.classschedule.Model.Assessment;
 import com.capstone.classschedule.Model.Course;
 import com.capstone.classschedule.Model.SelectedCourse;
+import com.capstone.classschedule.Validators.CourseValidator;
 import com.capstone.classschedule.ViewModels.AssessmentViewModel;
 import com.capstone.classschedule.ViewModels.CourseViewModel;
 
@@ -151,21 +152,30 @@ public class CourseActivity extends AppCompatActivity {
         int completeInt = 0;
         if (complete.isChecked()) {completeInt = 1;}
         int idInt;
-        Course saveCourse = new Course(titleString, startDateString, endDateString, instructorString, instructorEmailString, noteString, completeInt);
-        if(id.getText().toString().equals("Add Course…")) {
-            //Create new, don't update
-            courseViewModel.insert(saveCourse);
-            //we need to get id of the just saved course
-            selectedCourse.setSelectedCourse(saveCourse);
-            assessmentViewModel.updateNegativeOnes(-1, Objects.requireNonNull(selectedCourse.getSelectedCourse().getValue()).getId());
-            Toast.makeText(getApplicationContext(), "Course Created Successfully", Toast.LENGTH_LONG).show();
+
+        if (!CourseValidator.courseValidate(titleString, instructorString, instructorEmailString, noteString)) {
+            Toast.makeText(getApplicationContext(), "Please enter a title", Toast.LENGTH_LONG).show();
         } else {
-            //update by id
-            idInt = Integer.parseInt(id.getText().toString());
-            courseViewModel.update(idInt, saveCourse);
-            Toast.makeText(getApplicationContext(), "Course Updated", Toast.LENGTH_LONG).show();
+            Course saveCourse = new Course(titleString, startDateString, endDateString, instructorString, instructorEmailString, noteString, completeInt);
+            if (id.getText().toString().equals("Add Course…")) {
+                //Create new, don't update
+                courseViewModel.insert(saveCourse);
+                //we need to get id of the just saved course
+                try {
+                    selectedCourse.setSelectedCourse(courseViewModel.getLastCreated());
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Unable to save Assessments", Toast.LENGTH_LONG).show();
+                }
+                assessmentViewModel.updateNegativeOnes(-1, Objects.requireNonNull(selectedCourse.getSelectedCourse().getValue()).getId());
+                Toast.makeText(getApplicationContext(), "Course Created Successfully", Toast.LENGTH_LONG).show();
+            } else {
+                //update by id
+                idInt = Integer.parseInt(id.getText().toString());
+                courseViewModel.update(idInt, saveCourse);
+                Toast.makeText(getApplicationContext(), "Course Updated", Toast.LENGTH_LONG).show();
+            }
+            getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
         }
-        getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
     }
 
     //DELETE COURSE
@@ -173,17 +183,19 @@ public class CourseActivity extends AppCompatActivity {
         int idInt;
         TextView id = findViewById(R.id.fragment_course_id_textview);
         if(id.getText().toString().equals("Add Course...")) {
-            //Delete Assessments with int -1
             Toast.makeText(getApplicationContext(), "Course Creation Cancelled", Toast.LENGTH_LONG).show();
+            getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
         } else {
             idInt = Integer.parseInt(id.getText().toString());
-            courseViewModel.deleteById(idInt);
-            getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
-            Toast.makeText(getApplicationContext(), "Course Deleted", Toast.LENGTH_LONG).show();
+            if(assessmentViewModel.countOfAssessments(idInt) > 0) {
+                Toast.makeText(getApplicationContext(), "Please Delete Assessments Before Deleting Course", Toast.LENGTH_LONG).show();
+            } else {
+                courseViewModel.deleteById(idInt);
+                getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
+                Toast.makeText(getApplicationContext(), "Course Deleted", Toast.LENGTH_LONG).show();
+            }
         }
-
-
     }
 
-    //TODO Assessments need to be created with the ID, type(Oral, Written), title, and note
+
 }

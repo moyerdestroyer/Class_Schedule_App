@@ -23,7 +23,7 @@ public class AssessmentViewModel extends AndroidViewModel {
         super(application);
         repo = new ScheduleRepository(application);
         allAssessments = Transformations.switchMap(selectedCourseId, (input -> {
-            if(input == null || input == -1) {
+            if(input == null) {
                 return repo.getAllAssessments();
             } else {
                 try {
@@ -47,5 +47,16 @@ public class AssessmentViewModel extends AndroidViewModel {
 
     public void updateNegativeOnes(int negative, int courseId) {
         repo.updateNegativeOnes(negative, courseId);
+    }
+
+    public int countOfAssessments(int courseId) {
+        int returnVal;
+        try {
+            returnVal = repo.countOfAssessments(courseId).get();
+            return returnVal;
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

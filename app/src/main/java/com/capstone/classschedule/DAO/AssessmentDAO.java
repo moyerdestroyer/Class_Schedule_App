@@ -27,4 +27,7 @@ public interface AssessmentDAO {
 
     @Query("UPDATE assessments SET courseId = :courseId WHERE courseId = :negative")
     void updateNegativeOnes(int negative, int courseId);
+
+    @Query("SELECT COUNT(id) FROM assessments WHERE courseId = :courseId GROUP BY courseId ")
+    int countOfAssessments(int courseId);
 }

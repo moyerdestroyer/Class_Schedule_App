@@ -39,18 +39,19 @@ public class AddAssessmentFragment extends DialogFragment {
         noteEdittext = view.findViewById(R.id.dialog_assessment_note_edittext);
 
         String idText = getTag();
-        int id, assessmentType;
+        int id;
         assert idText != null;
         id = idText.equals("Add Course…") ? -1 : Integer.parseInt(idText);
-        if(writtenButton.isChecked()){
-            assessmentType = AssessmentType.WRITTEN;
-        } else {
-            assessmentType = AssessmentType.ORAL;
-        }
 
         builder.setView(view).setTitle("Add Assessment").setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                int assessmentType;
+                if(writtenButton.isChecked()){
+                    assessmentType = AssessmentType.WRITTEN;
+                } else {
+                    assessmentType = AssessmentType.ORAL;
+                }
                 activity.positiveAssessmentClick(id, assessmentType, titleEdittext.getText().toString(), noteEdittext.getText().toString());
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

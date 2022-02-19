@@ -54,4 +54,8 @@ public class CourseViewModel extends AndroidViewModel {
     public void deleteById(int id){
         repo.deleteCourseById(id);
     }
+
+    public Course getLastCreated() throws ExecutionException, InterruptedException {
+        return repo.getLastCreated().get();
+    }
 }

@@ -92,7 +92,7 @@ public class fragment_course_edit extends Fragment {
             //update assessments
             assessmentViewModel.setSelectedId(thiscourse.getId());
         } else {
-            assessmentViewModel.setSelectedId(null);
+            assessmentViewModel.setSelectedId(-1);
         }
         return rootView;
     }

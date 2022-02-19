@@ -27,4 +27,7 @@ public interface CourseDAO {
 
     @Query("DELETE FROM courses WHERE id = :id")
     void deleteCourseById(int id);
+
+    @Query("SELECT * FROM courses ORDER BY id DESC LIMIT 1")
+    Course getLastCreated();
 }
