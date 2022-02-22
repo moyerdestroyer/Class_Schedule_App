@@ -83,4 +83,14 @@ public class ScheduleRepository {
         return ScheduleRoomDatabase.databaseWriteExecutor.submit(() ->
                 assessmentDAO.countOfAssessments(courseId));
     }
+    public void updateAssessmentCount(int courseId, int assessmentCount) {
+        ScheduleRoomDatabase.databaseWriteExecutor.execute(() ->
+                courseDAO.updateAssessmentCount(courseId, assessmentCount));
+    }
+
+
+    public void deleteAssessment(Assessment assessment) {
+        ScheduleRoomDatabase.databaseWriteExecutor.execute(() ->
+                assessmentDAO.delete(assessment));
+    }
 }

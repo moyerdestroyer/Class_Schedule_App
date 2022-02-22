@@ -9,6 +9,7 @@ public class CourseActivityTest {
 
     @Test
     public void courseValidate() {
+        //TODO REDO these tests
         Assert.assertTrue(CourseValidator.courseValidate(
                 "Course Title",
                 "John Smith",

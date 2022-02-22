@@ -12,6 +12,7 @@ import com.capstone.classschedule.DAO.ScheduleRepository;
 import com.capstone.classschedule.Model.Course;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 public class CourseViewModel extends AndroidViewModel {
@@ -35,6 +36,7 @@ public class CourseViewModel extends AndroidViewModel {
             }
         }));
     }
+
     public void setSearchInput(String query) {
         searchInput.setValue(query);
     }
@@ -57,5 +59,15 @@ public class CourseViewModel extends AndroidViewModel {
 
     public Course getLastCreated() throws ExecutionException, InterruptedException {
         return repo.getLastCreated().get();
+    }
+    public void updateAssessmentCount() {
+        for(int i = 0; i < Objects.requireNonNull(allCourses.getValue()).size(); i++) {
+            int courseId = allCourses.getValue().get(i).getId();
+            try {
+                repo.updateAssessmentCount(courseId, repo.countOfAssessments(courseId).get());
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

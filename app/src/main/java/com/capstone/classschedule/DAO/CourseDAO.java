@@ -30,4 +30,7 @@ public interface CourseDAO {
 
     @Query("SELECT * FROM courses ORDER BY id DESC LIMIT 1")
     Course getLastCreated();
+
+    @Query("UPDATE courses SET numberOfAssessments = :count WHERE id = :id")
+    void updateAssessmentCount(int id, int count);
 }

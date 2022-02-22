@@ -59,4 +59,8 @@ public class AssessmentViewModel extends AndroidViewModel {
             return 0;
         }
     }
+
+    public void deleteAssessment(Assessment assessment) {
+        repo.deleteAssessment(assessment);
+    }
 }

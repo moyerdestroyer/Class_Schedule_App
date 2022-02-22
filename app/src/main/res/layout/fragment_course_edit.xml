@@ -151,6 +151,7 @@
                 android:id="@+id/fragment_course_delete_assessment_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="DeleteAssessment"
                 android:text="@string/delete_assessment"/>
 
         </LinearLayout>

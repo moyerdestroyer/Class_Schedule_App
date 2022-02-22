@@ -7,10 +7,10 @@
         android:id="@+id/menu_add_course"
         android:title="Add Course"
         android:onClick="AddCourseFragment"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/menu_report_view"
         android:title="Report View"
         android:onClick="GoToReportActivity"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 </menu>

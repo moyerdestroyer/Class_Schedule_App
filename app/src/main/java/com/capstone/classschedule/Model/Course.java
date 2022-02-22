@@ -29,6 +29,8 @@ public class Course {
     String createdTime;
     @ColumnInfo(name = "lastModifiedTime", defaultValue = "CURRENT_TIMESTAMP")
     String lastModifiedTime;
+    @ColumnInfo(name = "numberOfAssessments", defaultValue = "0")
+    private int numberOfAssessments;
 
     public Course(String title, String start, String end, String instructor, String instructorEmail, String note, int complete) {
         this.title = title;
@@ -118,5 +120,12 @@ public class Course {
 
     public void setLastModifiedTime(String lastModifiedTime) {
         this.lastModifiedTime = lastModifiedTime;
+    }
+    public int getNumberOfAssessments() {
+        return numberOfAssessments;
+    }
+
+    public void setNumberOfAssessments(int numberOfAssessments) {
+        this.numberOfAssessments = numberOfAssessments;
     }
 }

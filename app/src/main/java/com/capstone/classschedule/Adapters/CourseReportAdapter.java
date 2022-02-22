@@ -25,6 +25,7 @@ public class CourseReportAdapter extends ListAdapter<Course, CourseReportViewHol
         Course current = getItem(position);
         holder.bind(current);
     }
+
     public static class CourseDiff extends DiffUtil.ItemCallback<Course> {
 
         @Override

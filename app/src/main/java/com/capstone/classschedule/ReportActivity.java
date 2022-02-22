@@ -29,7 +29,6 @@ public class ReportActivity extends AppCompatActivity {
         courseViewModel = new ViewModelProvider(this).get(CourseViewModel.class);
         courseViewModel.getAllCourses().observe(this, adapter::submitList);
         courseViewModel.setSearchInput("");
-        //TODO Give filter radiobuttons id's
     }
 
     //Menu

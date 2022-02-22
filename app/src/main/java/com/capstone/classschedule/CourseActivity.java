@@ -30,12 +30,15 @@ import com.capstone.classschedule.Validators.CourseValidator;
 import com.capstone.classschedule.ViewModels.AssessmentViewModel;
 import com.capstone.classschedule.ViewModels.CourseViewModel;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CourseActivity extends AppCompatActivity {
     public CourseViewModel courseViewModel;
     public SelectedCourse selectedCourse;
     public AssessmentViewModel assessmentViewModel;
+    ArrayList<Assessment> selectedAssessments;
     RecyclerView courseRecycler;
     Fragment currentFragment;
 
@@ -72,6 +75,7 @@ public class CourseActivity extends AppCompatActivity {
                 return false;
             }
         });
+        Objects.requireNonNull(getSupportActionBar()).setTitle("My Courses");
     }
 
     /*
@@ -84,11 +88,13 @@ public class CourseActivity extends AppCompatActivity {
     }
     public void AddCourseFragment(MenuItem item) {
         selectedCourse.setSelectedCourse(null);
+        selectedAssessments = new ArrayList<>();
         currentFragment = new fragment_course_edit();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.course_activity_fragment, currentFragment).commit();
     }
     public void GoToReportActivity(MenuItem item) {
+        courseViewModel.updateAssessmentCount();
         Intent reportIntent = new Intent(getApplicationContext(), ReportActivity.class);
         startActivity(reportIntent);
     }
@@ -125,6 +131,7 @@ public class CourseActivity extends AppCompatActivity {
      */
     //GOTO DETAILED COURSE VIEW
     public void courseDetailView(Course course) {
+        selectedAssessments = new ArrayList<>();
         selectedCourse.setSelectedCourse(course);
         currentFragment = new fragment_course_edit();
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -154,7 +161,7 @@ public class CourseActivity extends AppCompatActivity {
         int idInt;
 
         if (!CourseValidator.courseValidate(titleString, instructorString, instructorEmailString, noteString)) {
-            Toast.makeText(getApplicationContext(), "Please enter a title", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Check Title, Instructor Name, and Email for Errors!", Toast.LENGTH_LONG).show();
         } else {
             Course saveCourse = new Course(titleString, startDateString, endDateString, instructorString, instructorEmailString, noteString, completeInt);
             if (id.getText().toString().equals("Add Course…")) {
@@ -196,6 +203,19 @@ public class CourseActivity extends AppCompatActivity {
             }
         }
     }
+    public void DeleteAssessment(View view) {
+        for(int i = 0; i<selectedAssessments.size(); i++) {
+            assessmentViewModel.deleteAssessment(selectedAssessments.get(i));
+        }
+        Toast.makeText(getApplicationContext(), "Selected Assessments Deleted", Toast.LENGTH_LONG).show();
+    }
 
-
+    public void setSelectedAssessment(Assessment assessment) {
+        if (selectedAssessments != null && selectedAssessments.contains(assessment)) {
+            selectedAssessments.remove(assessment);
+        } else {
+            assert selectedAssessments != null;
+            selectedAssessments.add(assessment);
+        }
+    }
 }
