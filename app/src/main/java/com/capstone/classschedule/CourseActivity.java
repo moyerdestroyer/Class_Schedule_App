@@ -78,6 +78,16 @@ public class CourseActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle("My Courses");
     }
 
+    @Override
+    public void onBackPressed() {
+        try {
+            getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            super.onBackPressed();
+        }
+    }
+
     /*
     MENU FUNCTIONS
      */
@@ -173,7 +183,9 @@ public class CourseActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Unable to save Assessments", Toast.LENGTH_LONG).show();
                 }
-                assessmentViewModel.updateNegativeOnes(-1, Objects.requireNonNull(selectedCourse.getSelectedCourse().getValue()).getId());
+                if(selectedCourse.getSelectedCourse().getValue() != null) {
+                    assessmentViewModel.updateNegativeOnes(-1, selectedCourse.getSelectedCourse().getValue().getId());
+                }
                 Toast.makeText(getApplicationContext(), "Course Created Successfully", Toast.LENGTH_LONG).show();
             } else {
                 //update by id
@@ -189,7 +201,7 @@ public class CourseActivity extends AppCompatActivity {
     public void DeleteCourse(View view) {
         int idInt;
         TextView id = findViewById(R.id.fragment_course_id_textview);
-        if(id.getText().toString().equals("Add Course...")) {
+        if(id.getText().toString().equals("Add Course…")) {
             Toast.makeText(getApplicationContext(), "Course Creation Cancelled", Toast.LENGTH_LONG).show();
             getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
         } else {

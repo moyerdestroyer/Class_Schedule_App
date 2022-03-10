@@ -9,6 +9,9 @@ public class CourseValidator {
         if (alphanumericPattern.matcher(title).matches()) {
             return false;
         }
+        if (title.equals("")) {
+            return false;
+        }
         if (alphanumericPattern.matcher(instructor).matches()) {
             return false;
         }

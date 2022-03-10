@@ -5,13 +5,13 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.app.KeyguardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.biometrics.BiometricManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 import android.os.CancellationSignal;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,12 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loginPrompt = findViewById(R.id.main_login_prompt);
-        //AUTO LOGIN FOR TESTING
-        Intent courseIntent = new Intent(getApplicationContext(), CourseActivity.class);
-        startActivity(courseIntent);
-        //DELETE ABOVE
-        //UNDELETE BELOW
-        //boolean support = checkBiometricSupport();
+        boolean support = checkBiometricSupport();
     }
 
     public void authenticateUser(View view) {
@@ -93,4 +88,8 @@ public class MainActivity extends AppCompatActivity {
         return cancellationSignal;
     }
 
+    public void GoToSecuritySettings(View view) {
+        Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+        startActivity(intent);
+    }
 }

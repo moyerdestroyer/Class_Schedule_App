@@ -33,10 +33,6 @@ public class CourseActivityViewHolder extends RecyclerView.ViewHolder implements
         courseDates.setText(String.format("%s - %s", thisCourse.getStart(), thisCourse.getEnd()));
         courseInstructor.setText(thisCourse.getInstructor());
         itemView.setOnClickListener(this);
-        if(course.getComplete() == 1) {
-            //course is complete, grey it a little bit
-            itemView.setBackgroundColor(ContextCompat.getColor(itemView.getContext(), R.color.recyclerGray));
-        }
     }
     public static CourseActivityViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_course, parent, false);

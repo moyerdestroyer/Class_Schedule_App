@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/drawable-anydpi/assessment_written.xml" value="0.2" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.207" />
+        <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/drawable/ic_launcher_background.xml" value="0.207" />
         <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/drawable/table_content_cell_bg.xml" value="0.2" />
         <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/activity_course.xml" value="0.4" />
         <entry key="..\:/Users/moyer/AndroidStudioProjects/ClassSchedule/app/src/main/res/layout/activity_course_view.xml" value="0.2046875" />

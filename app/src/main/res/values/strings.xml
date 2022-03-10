@@ -5,7 +5,7 @@
     <string name="lock_screen_enabled">Lock screen must be enabled in settings</string>
     <string name="fingerprint_permission_prompt">Fingerprint permission not enabled</string>
     <string name="cancelled">Cancelled</string>
-    <string name="auth_error">\"Authentication Error: \"</string>
+    <string name="auth_error">"Authentication Error "</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="select_start_date">Select Start Date</string>
     <string name="course_title">Course Title</string>
@@ -31,4 +31,6 @@
     <string name="sample_note_assessment_text">This is a sample note text. Hopefully, a student will not have too much to say here.</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="security_settings">Lock Screen must be enabled in order to use this app. If you have not done so, please create a pin code from the security settings.</string>
+    <string name="settings_icon">Settings Icon</string>
 </resources>
