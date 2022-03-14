@@ -1,5 +1,5 @@
-# Class_Schedule_App
-This is an Android application that allows the user to manage a class schedule. A wide variety of android features are displayed here, making this a great starter for someone looking at how Room works. This application also uses passcode log in, and uses dialog fragments to create assessments.  
+# Class Scheduler
+This is an Android application that allows the user to manage a class schedule. A wide variety of android features are displayed here, making this a great starter for someone looking at how Room works. This application also uses passcode log in, and uses dialog fragments to create assessments. This also features a usage of multi-select for the assessment list, and can show a course list in table format.  
 **Features:**
 1. Java
 2. Room
